@@ -63,20 +63,21 @@ export default {
   methods: {
     async fetchGames() {
       this.games = undefined;
-      const { data } = await axios.get("/games");
+      const { data } = await axios.get("http://192.168.1.200:1337/games");
       this.games = data;
     },
     async reloadGames() {
       this.games = undefined;
-      const { data } = await axios.get("/reload");
+      const { data } = await axios.get("http://192.168.1.200:1337/reload");
       this.games = data;
     },
     async sendGame(file) {
       this.displayLoadingOverlay = true;
       this.gameBooting = file;
-      const { data } = await axios.get("/sendGame", {
+      const { data } = await axios.get("http://192.168.1.200:1337/sendGame", {
         params: { game: file }
       });
+      this.displayLoadingOverlay = false;
       console.log(data);
     }
   }

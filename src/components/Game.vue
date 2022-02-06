@@ -1,6 +1,6 @@
 <template>
   <v-card class="game mx-auto">
-    <v-img height="200px" :src="`data:image/jpeg;base64,${game.image}`">
+    <v-img contain height="200px" :src="`data:image/jpeg;base64,${game.image}`">
     </v-img>
     <v-card-title>{{ game.name }}</v-card-title>
 
